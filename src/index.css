@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Public+Sans:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", "Noto Serif KR", serif;
+  --font-sans: "Public Sans", "Noto Serif KR", sans-serif;
+
+  /* Surface palette — warm, paper-like */
+  --color-surface: #fbf9f5;
+  --color-surface-low: #f5f3ef;
+  --color-surface-high: #ffffff;
+  --color-surface-variant: #e4e2de;
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #54433b;
+
+  /* Brand accents — editorial manuscript */
+  --color-primary: #91471d;
+  /* Terracotta */
+  --color-primary-ink: #6e3615;
+  /* Deeper ink for text-on-light */
+  --color-primary-wash: #f4e6dc;
+  /* Tinted backgrounds */
+  --color-secondary: #53652f;
+  /* Olive */
+  --color-tertiary: #00666b;
+  /* Teal */
+
+  --color-outline: #87736a;
+  --color-outline-variant: #dac1b7;
+
+  /* Typography scale — compressed to a ~1.25 modular ratio.
+     Goal: reduce the gap between largest and smallest so the page reads
+     as one family. Only 3 weights used globally: 400 / 500 / 700. */
+  --text-display: clamp(2rem, 3.4vw, 2.625rem);  /* 32–42px — page titles */
+  --text-h1: clamp(1.75rem, 2.8vw, 2.25rem);      /* 28–36px — article title */
+  --text-h2: clamp(1.25rem, 2vw, 1.5rem);         /* 20–24px — section heads */
+  --text-h3: 1.125rem;                             /* 18px — card titles */
+  --text-body-lg: 1.0625rem;                       /* 17px — lead body */
+  --text-body: 1rem;                               /* 16px — body */
+  --text-meta: 0.8125rem;                          /* 13px — meta text */
+  --text-label: 0.75rem;                           /* 12px — all-caps labels */
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-body-kr: 1.75;
+  /* Looser for Korean body prose */
+  --lh-body-en: 1.6;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface font-sans text-on-surface;
+    font-weight: 400;
+    line-height: var(--lh-body-kr);
+    /* Crisper rendering on Windows/Chrome for Korean glyphs —
+       antialiased (grayscale) was making Noto Serif KR look thin & hazy. */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(145, 71, 29, 0.035) 0%, transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(83, 101, 47, 0.025) 0%, transparent 45%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(145, 71, 29, 0.2);
+    color: var(--color-primary-ink);
+  }
+
+  /* Consistent heading base — serif, medium weight, tight tracking */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    line-height: var(--lh-tight);
+  }
+
+  /* Body defaults */
+  p {
+    line-height: var(--lh-body-kr);
+  }
+
+  /* Korean line-break polish */
+  .break-keep {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer components {
+
+  /* Nav link — editorial uppercase, but not so tracked/tiny that it disappears */
+  .nav-link {
+    @apply text-[13px] font-bold uppercase tracking-[0.14em] font-sans transition-colors;
+  }
+
+  /* Plate No. label — manuscript identity */
+  .plate-no {
+    @apply inline-flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.24em] text-primary font-sans;
+  }
+
+  .plate-no::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.7;
+  }
+
+  /* Section number (§01, §02 ...) */
+  .section-num {
+    @apply font-serif italic text-primary/50;
+    font-weight: 400;
+  }
+
+  /* Meta label — small sans caps (color usually overridden by context) */
+  .label {
+    @apply text-[12px] font-bold uppercase tracking-[0.2em] font-sans;
+    color: var(--color-on-surface-variant);
+  }
+
+  /* Drop cap — editorial opener */
+  .drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 0.95;
+    padding-right: 0.6rem;
+    padding-top: 0.2rem;
+    color: var(--color-primary);
+  }
+
+  /* Body prose link */
+  .prose-link {
+    @apply text-primary-ink underline decoration-primary/30 decoration-1 underline-offset-4 transition-all hover:decoration-primary hover:decoration-2;
+    font-weight: 500;
+  }
+
+  /* Thin editorial divider with accent */
+  .rule {
+    @apply relative h-px bg-surface-variant/60;
+  }
+
+  .rule::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 2rem;
+    height: 7px;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
+  }
+
+  /* Card — editorial */
+  .card-editorial {
+    @apply bg-surface-high relative transition-all duration-300;
+    box-shadow: 0 1px 0 rgba(27, 28, 26, 0.04), 0 1px 3px rgba(27, 28, 26, 0.03);
+  }
+
+  .card-editorial:hover {
+    box-shadow: 0 2px 0 rgba(145, 71, 29, 0.12), 0 8px 24px rgba(27, 28, 26, 0.06);
+    transform: translateY(-2px);
+  }
+
+  /* Display title — page heroes */
+  .title-display {
+    font-family: var(--font-serif);
+    font-size: var(--text-display);
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    line-height: 1.12;
+  }
+
+  /* H2 — section heads */
+  .title-h2 {
+    font-family: var(--font-serif);
+    font-size: var(--text-h2);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+
+  /* H3 — card titles */
+  .title-h3 {
+    font-family: var(--font-serif);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    line-height: 1.4;
+  }
+
+  /* Prose body — optimized for Korean reading.
+     Uses weight 500 (Noto Serif KR at 400 looks too thin on Windows). */
+  .prose-body {
+    font-family: var(--font-sans);
+    font-weight: 450;
+    line-height: var(--lh-body-kr);
+    color: var(--color-on-surface);
+  }
+
+  /* Tagline / description — upright serif 500.
+     Italic removed globally because Noto Serif KR has no true italic glyphs
+     and browsers synthesize an oblique that renders fuzzy for Hangul. */
+  .tagline {
+    font-family: var(--font-serif);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--lh-snug);
+    color: var(--color-on-surface-variant);
+  }
+}
+
+/* Focus ring that matches the brand */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hide scrollbar for mobile drawer */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
