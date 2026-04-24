@@ -316,17 +316,22 @@ function createImageState(slug: string, vaultImageIndex: Map<string, string>) {
         return copiedImages.get(basename)!;
       }
 
+      const ext = path.extname(basename);
+      const targetName = `${slug}-${slugify(path.basename(basename, ext))}${ext.toLowerCase()}`;
+      const targetPath = path.join(publicImagesDir, targetName);
+      const publicPath = `/images/${targetName}`;
+
+      if (fs.existsSync(targetPath)) {
+        copiedImages.set(basename, publicPath);
+        return publicPath;
+      }
+
       const sourcePath = vaultImageIndex.get(basename) || path.join(contentsDir, basename);
       if (!fs.existsSync(sourcePath)) {
         return null;
       }
 
-      const ext = path.extname(basename);
-      const targetName = `${slug}-${slugify(path.basename(basename, ext))}${ext.toLowerCase()}`;
-      const targetPath = path.join(publicImagesDir, targetName);
-
       fs.copyFileSync(sourcePath, targetPath);
-      const publicPath = `/images/${targetName}`;
       copiedImages.set(basename, publicPath);
       return publicPath;
     },
