@@ -324,13 +324,13 @@ type Article = {
 
 const Home = () => {
   const featured: Article = {
-    date: '2026년 2월 2일',
-    plate: 'Plate No. 42',
-    title: '휴먼 웹은 이제 에이전트 웹이 된다',
-    desc: '우리는 지금 인간의 클릭에서 에이전트 기반 워크플로우로의 거대한 전환점에 서 있습니다. 인터페이스는 이제 눈으로 보는 것이 아니라 실행되는 구조가 되어야 합니다.',
-    tags: ['AI', 'AGENTS', 'WEB'],
+    date: '2026년 4월 24일',
+    plate: 'Plate No. 43',
+    title: '블로그 디자인, 나의 Taste를 묻다',
+    desc: '레퍼런스 사이트에서 취향을 고르고, Google Stitch와 Claude cowork로 화면을 다듬고, GitHub Pages 배포 시행착오를 거쳐 내 블로그를 완성한 기록입니다.',
+    tags: ['DESIGN', 'BLOG', 'GITHUB PAGES'],
     image:
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200',
   };
 
   const secondary: Article[] = [
@@ -351,12 +351,12 @@ const Home = () => {
   ];
 
   const recent: Article[] = [
+    { date: '2026년 4월 24일', title: '블로그 디자인, 나의 Taste를 묻다', desc: '취향을 레퍼런스로 정리하고, AI 도구를 역할별로 활용해 개인 블로그를 만들고 배포한 과정.', tags: ['DESIGN', 'BLOG'] },
     { date: '2026년 3월 31일', title: 'Bash가 루프를 소유하다', desc: '가장 단순한 설계로 돌아갔을 때, 쉘 자체가 상태와 스케줄링을 관리하는 것이 에이전트의 안정성을 보장했습니다.', tags: ['DEV', 'BASH'] },
     { date: '2026년 3월 29일', title: 'AI 루프에 대해 강화된 아키텍처 철학', desc: '측정 가능한 결과와 현실 사이의 간극을 좁히는 유일한 방법은 루프 안의 신뢰 모델을 고도화하는 것입니다.', tags: ['LOOPS', 'AI'] },
     { date: '2026년 3월 25일', title: '벡터 데이터베이스의 한계와 기회', desc: 'RAG 시스템에서 지식의 인출은 완벽하지 않습니다. 의미론적 검색의 맹점을 보완하는 하이브리드 전략.', tags: ['DATA', 'RAG'] },
     { date: '2026년 3월 18일', title: '코딩 에이전트 인프라스트럭처', desc: '자율적인 코딩 에이전트를 위한 샌드박스 환경과 실행 권한 관리의 정밀한 설계 기법.', tags: ['INFRA', 'AGENTS'] },
     { date: '2026년 3월 12일', title: '멀티 에이전트의 협력 시뮬레이션', desc: '서로 다른 페르소나를 가진 에이전트들이 복잡한 태스크를 수행할 때 발생하는 창발적 행동 분석.', tags: ['MULTI-AGENT'] },
-    { date: '2026년 3월 5일', title: 'LLM 기반 도구 호출의 안정성', desc: '함수 호출 오류를 최소화하고 결정론적인 결과를 끌어내는 프롬프트 아키텍처 가이드라인.', tags: ['TOOLS', 'LLM'] },
   ];
 
   const curated: Article[] = [
@@ -767,6 +767,12 @@ const Log = () => {
 
   const posts = [
     {
+      date: '2026년 4월 24일',
+      title: '블로그 디자인, 나의 Taste를 묻다',
+      tags: ['DESIGN', 'BLOG', 'GITHUB PAGES'],
+      desc: '레퍼런스 사이트로 취향을 정리하고, Google Stitch와 Claude cowork를 거쳐 GitHub Pages 배포까지 연결한 블로그 제작 기록.',
+    },
+    {
       date: '2026년 4월 21일',
       title: 'Qwen을 GPT-5.4보다 더 잘 쓰도록 학습시킨 경험 (어느 정도는)',
       tags: ['AI', 'HUMAN', 'TIL'],
@@ -886,60 +892,81 @@ const Log = () => {
 const Article = () => {
   return (
     <article className="max-w-5xl mx-auto px-5 sm:px-6 pt-10 sm:pt-14 md:pt-20 pb-20 sm:pb-32">
-      {/* Title block — left-aligned at 3xl to share a left edge with other pages */}
       <div className="max-w-3xl mb-12 md:mb-14 space-y-5">
         <nav className="flex flex-wrap gap-2 items-center text-[13px] font-bold uppercase tracking-[0.14em] text-primary">
-          <span>디지털 문화</span>
+          <span>디자인</span>
           <span className="text-primary/40">/</span>
-          <span>미래 아카이브</span>
+          <span>워크플로우</span>
         </nav>
 
         <h1 className="font-serif text-[clamp(1.875rem,3.6vw,2.75rem)] leading-[1.2] tracking-[-0.02em] font-medium text-on-surface break-keep">
-          휴먼 웹은 이제<br />에이전트 웹이 된다
+          블로그 디자인,<br />나의 Taste를 묻다
         </h1>
 
+        <p className="tagline text-[1.05rem] md:text-[1.125rem] text-on-surface-variant break-keep max-w-2xl">
+          레퍼런스 사이트에서 취향을 고르고, Google Stitch와 Claude cowork로 화면을 다듬고,
+          GitHub Pages 배포의 간극을 메우며 내 블로그를 완성한 기록.
+        </p>
+
         <div className="flex items-center gap-3 pt-2 text-[14px] text-on-surface-variant">
-          <time>2024년 10월 24일</time>
+          <time>2026년 4월 24일</time>
           <span className="text-on-surface-variant/50">·</span>
-          <span>7분 읽기</span>
+          <span>8분 읽기</span>
         </div>
       </div>
 
-      {/* Hero image — fills outer 5xl container */}
       <div className="mb-12 md:mb-16 group">
         <div className="aspect-[16/9] bg-surface-variant relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1600"
-            alt="원고 도판 No. 42"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+            alt="원고 도판 No. 43"
             className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
           />
           <div className="absolute inset-0 bg-primary/10 mix-blend-multiply group-hover:opacity-0 transition-opacity" />
         </div>
         <p className="mt-3 text-[13px] text-on-surface-variant text-right">
-          Plate No. 42 — 논리의 출현
+          Plate No. 43 — 취향의 구조
         </p>
       </div>
 
-      {/* Body — also left-aligned at 3xl */}
       <div className="max-w-3xl space-y-10 md:space-y-12">
         <p className="drop-cap prose-body text-[17px] leading-[1.75] text-on-surface break-keep">
-          지난 30년 동안 우리는 '페이지'의 시대에 머물렀습니다. 우리는 브라우징하고, 스크롤하며,
-          클릭했습니다. 우리의 디지털 존재는 직사각형 프레임인 '인터페이스'에 의해 매개되었습니다.
-          그러나 조용한 변전이 일어나고 있습니다. 인간의 눈과 손가락을 위해 구축된 사이트들의
-          네트워크인 '휴먼 웹'은 자율적인 존재들이 우리를 대신해 소통하고 협상하며 실행하는
-          보이지 않는 층인 '에이전트 웹'으로 대체되고 있습니다.
+          기술 블로그를 만들고 싶었지만, 내가 원한 건 단순히 글을 올릴 수 있는 웹사이트가 아니었다.
+          문서 사이트처럼 차갑지 않고, 그렇다고 감성만 남은 포트폴리오처럼 보이지도 않는 공간.
+          정보와 분위기가 함께 살아 있는, 조금은 에디토리얼한 블로그를 만들고 싶었다.
         </p>
 
         <section className="space-y-5">
           <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
-            <span className="section-num text-base mr-2">§01</span>인터페이스의 종말
+            <span className="section-num text-base mr-2">§01</span>레퍼런스를 보기 전까지는 내가 원하는 것도 정확히 몰랐다
           </h2>
           <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
-            에이전트가 항공권을 예매하고, 이메일을 요약하며, 캘린더를 관리할 수 있게 되면 그래픽
-            사용자 인터페이스(GUI)의 필요성은 약화되기 시작합니다. 우리는 '목적지'인 웹사이트가
-            단지 거대 언어 모델을 위한 데이터 소스에 불과한 세상으로 나아가고 있습니다. 사용자가
-            화면을 보지 않게 된다면 브랜드가 집착하던 픽셀 단위의 완벽한 디자인은 무의미해질
-            것입니다.
+            처음부터 Figma나 코드 에디터를 열지 않았다. 먼저 한 일은 레퍼런스 사이트를 보는 일이었다.
+            이미 잘 만들어진 블로그, 에디토리얼 사이트, 브랜드 저널 형태의 웹사이트들을 훑어보면서
+            내가 어떤 화면에 끌리는지부터 확인했다. 이 과정에서 기술 블로그지만 지나치게 기능적이지
+            않을 것, 타이포그래피와 여백이 인상을 결정할 것, 콘텐츠가 중심이되 브랜드 감각도 함께
+            드러날 것 같은 기준이 생기기 시작했다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            레퍼런스를 보는 일은 예쁜 사례를 수집하는 작업이 아니었다. 오히려 내가 좋아하는 것의
+            공통점을 말로 설명할 수 있게 만드는 과정에 가까웠다. 취향은 머릿속에만 있을 때보다,
+            비교 가능한 화면들 사이에서 훨씬 또렷해졌다.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
+            <span className="section-num text-base mr-2">§02</span>Google Stitch는 정답보다 방향을 빨리 좁혀주는 도구였다
+          </h2>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            어느 정도 기준이 잡힌 다음에는 Google Stitch를 활용해 기본적인 색감과 분위기를 탐색했다.
+            여기서 기대했던 것은 완성형 디자인이 아니었다. 내가 원했던 건 빠른 탐색이었다. 여러 무드와
+            톤을 짧은 시간 안에 비교해보면서, 어떤 방향이 맞고 어떤 방향이 아닌지를 거르는 과정이 필요했다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            실제로 Stitch는 초기 탐색 단계에서 꽤 유용했다. 막연했던 감각이 시각적인 초안으로 바뀌는
+            순간 이후의 작업이 훨씬 빨라졌다. 다만 이 단계에서 분명해진 한계도 있었다. Stitch는 무드
+            탐색에는 좋았지만, 그것만으로는 내가 원하는 수준의 개성과 디테일까지 확보되지는 않았다.
           </p>
         </section>
 
@@ -949,28 +976,77 @@ const Article = () => {
           </span>
           <div className="relative z-10 space-y-4">
             <p className="text-[1.125rem] md:text-[1.25rem] font-serif font-medium text-primary-ink leading-[1.5] tracking-[-0.012em] break-keep">
-              가장 심오한 기술은 사라지는 기술이다. 그것들은 일상의 직조 속에 녹아들어 우리가
-              구별할 수 없을 때까지 스며든다.
+              문제는 어떤 도구를 쓰느냐보다, 각 도구를 어느 단계에서 어떤 역할로 배치하느냐에 가까웠다.
             </p>
-            <cite className="label text-secondary not-italic">
-              — 마크 와이저, 1991
-            </cite>
           </div>
         </blockquote>
 
         <section className="space-y-5">
           <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
-            <span className="section-num text-base mr-2">§02</span>진정성으로서의 비대칭
+            <span className="section-num text-base mr-2">§03</span>Claude cowork에서부터 비로소 ‘내 블로그’가 되기 시작했다
           </h2>
           <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
-            AI가 생성한 완벽하고 살균된 콘텐츠에 대응하여, 인간 창작자들은 의도적인 비대칭성으로
-            회귀하고 있습니다. 우리는 이를 현대 타이포그래피와 레이아웃 디자인에서 목격하고
-            있습니다. 이는 정형화된 그리드에 대한 반항입니다. '공간의 럭셔리'와 유기적인 온기를
-            포용함으로써, 우리는 기계화된 풍경 속에서 인간의 존재를 증명합니다.
+            그래서 다음 단계에서는 Claude cowork를 활용해 디자인을 한층 더 다듬었다. 여기서는 무드를
+            탐색하기보다 구조와 디테일을 조정하는 일이 중심이 됐다. 타이포그래피의 인상, 헤더와 푸터의
+            밀도, 글 목록과 글 본문의 위계, 여백의 리듬 같은 요소들을 반복해서 손봤다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            이 과정이 중요했던 이유는 명확했다. 초기 시안은 방향을 제안해줄 수 있지만, 결국 완성도를
+            만드는 것은 세부 조정이기 때문이다. 화면은 점점 예쁜 샘플이 아니라 내가 실제로 운영할
+            사이트처럼 보이기 시작했다.
           </p>
         </section>
 
-        {/* Article footer: return to archive */}
+        <section className="space-y-5">
+          <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
+            <span className="section-num text-base mr-2">§04</span>디자인이 끝났다고, 블로그가 완성된 것은 아니었다
+          </h2>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            구현이 어느 정도 마무리됐을 때, 이제 남은 일은 GitHub Pages에 올리는 것뿐이라고 생각했다.
+            하지만 실제로는 여기서 예상보다 오래 막혔다. 처음에는 GitHub Pages가 정적 페이지만 서비스할 수
+            있으니 지금 만든 사이트 구조와는 맞지 않는다고 생각했다. 겉으로 보기에는 그 판단이 꽤
+            자연스러워 보였다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            하지만 조금 더 들여다보니 문제는 GitHub Pages 자체가 아니었다. 내가 만든 앱 구조와 GitHub
+            Pages의 서빙 방식이 어긋나 있었던 것이 진짜 원인이었다.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
+            <span className="section-num text-base mr-2">§05</span>결국 문제는 플랫폼보다 설정과 이해의 문제에 가까웠다
+          </h2>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            React Router의 BrowserRouter는 정적 배포 환경과 그대로 맞물리지 않았고, Vite의 base 경로를
+            맞추지 않으면 asset도 쉽게 깨졌다. 처음에는 “GitHub Pages는 안 된다”라고 생각했지만,
+            실제로는 “GitHub Pages에 맞는 설정이 아직 안 되어 있다”가 더 정확한 표현이었다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            그래서 최종적으로는 production base를 /blog/로 설정하고, router에 basename을 적용하고,
+            빌드 시 404.html을 함께 생성하고, GitHub Actions 기반 배포 흐름을 추가하는 식으로 구조를
+            Pages에 맞춰 정리했다. 디자인을 거의 건드리지 않고도 서비스가 가능해진 순간, 문제가 플랫폼이
+            아니라 구조와 설정의 간극이었다는 점이 분명해졌다.
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="font-serif text-[1.375rem] md:text-[1.5rem] font-medium tracking-[-0.015em] text-on-surface break-keep">
+            <span className="section-num text-base mr-2">§06</span>이번 작업을 지나며 남은 것들
+          </h2>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            이번 작업을 통해 분명해진 건 세 가지였다. 첫째, 디자인 작업과 배포 작업은 완전히 다른
+            성격의 일이라는 점. 둘째, AI 도구는 만능 해결사가 아니라 단계별로 다른 역할을 맡길 때
+            가장 강하다는 점. 셋째, 구현 중 막혔을 때 플랫폼의 한계라고 너무 빨리 결론내리지 않는 것이
+            중요하다는 점이다.
+          </p>
+          <p className="prose-body text-[17px] leading-[1.75] text-on-surface-variant break-keep">
+            결국 이번 경험에서 가장 크게 남은 것은 하나다. 좋은 결과물은 한 번에 완성되지 않는다.
+            방향을 잡는 단계, 다듬는 단계, 부딪히는 단계, 다시 정리하는 단계를 거치면서 비로소
+            자기 것이 된다.
+          </p>
+        </section>
+
         <div className="pt-10 border-t border-surface-variant/60 flex flex-wrap items-center justify-between gap-4">
           <Link
             to="/post"
@@ -979,9 +1055,9 @@ const Article = () => {
             ← 전체 아카이브
           </Link>
           <div className="flex gap-4 label text-primary">
-            <span>AI</span>
-            <span>AGENTS</span>
-            <span>WEB</span>
+            <span>DESIGN</span>
+            <span>BLOG</span>
+            <span>GITHUB PAGES</span>
           </div>
         </div>
       </div>
