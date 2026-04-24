@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 // --- Shared data ---------------------------------------------------------
 
 const NAV_ITEMS: { to: string; label: string }[] = [
@@ -259,7 +261,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="/rss.xml"
+                href={`${BASE_URL}rss.xml`}
                 aria-label="RSS"
                 className="p-2 rounded-full border border-surface-variant/60 hover:border-primary hover:text-primary transition-colors"
               >
@@ -991,7 +993,7 @@ const Article = () => {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={BASE_URL}>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
