@@ -6,6 +6,7 @@ author:
 date created: 2026-04-24T11:46:00
 date modified: 2026-04-24T11:52:00
 tags: [CMDS, share, blog, GitHubPages, Vite, design, publishing]
+cover: blog-design-anthropic-hero.png
 CMDS: "[[10. CMDS Process]]"
 source: "[[블로그 디자인 제작과 GitHub Pages 배포 시행착오]]"
 status: completed

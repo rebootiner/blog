@@ -326,6 +326,13 @@ function createImageState(slug: string, vaultImageIndex: Map<string, string>) {
         return publicPath;
       }
 
+      const existingPublicAsset = path.join(publicImagesDir, basename);
+      if (fs.existsSync(existingPublicAsset)) {
+        const directPublicPath = `/images/${basename}`;
+        copiedImages.set(basename, directPublicPath);
+        return directPublicPath;
+      }
+
       const sourcePath = vaultImageIndex.get(basename) || path.join(contentsDir, basename);
       if (!fs.existsSync(sourcePath)) {
         return null;
