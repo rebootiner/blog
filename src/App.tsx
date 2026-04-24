@@ -329,8 +329,7 @@ const Home = () => {
     title: '블로그 디자인, 나의 Taste를 묻다',
     desc: '레퍼런스 사이트에서 취향을 고르고, Google Stitch와 Claude cowork로 화면을 다듬고, GitHub Pages 배포 시행착오를 거쳐 내 블로그를 완성한 기록입니다.',
     tags: ['DESIGN', 'BLOG', 'GITHUB PAGES'],
-    image:
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200',
+    image: `${BASE_URL}images/blog-design-reference.png`,
   };
 
   const secondary: Article[] = [
@@ -918,8 +917,8 @@ const Article = () => {
       <div className="mb-12 md:mb-16 group">
         <div className="aspect-[16/9] bg-surface-variant relative overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
-            alt="원고 도판 No. 43"
+            src={`${BASE_URL}images/blog-design-reference.png`}
+            alt="블로그 디자인 레퍼런스 이미지"
             className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
           />
           <div className="absolute inset-0 bg-primary/10 mix-blend-multiply group-hover:opacity-0 transition-opacity" />
@@ -952,6 +951,17 @@ const Article = () => {
             공통점을 말로 설명할 수 있게 만드는 과정에 가까웠다. 취향은 머릿속에만 있을 때보다,
             비교 가능한 화면들 사이에서 훨씬 또렷해졌다.
           </p>
+
+          <figure className="space-y-3 pt-2">
+            <img
+              src={`${BASE_URL}images/blog-design-reference.png`}
+              alt="블로그 레퍼런스 화면 모음"
+              className="w-full border border-surface-variant/50"
+            />
+            <figcaption className="text-[13px] text-on-surface-variant break-keep">
+              레퍼런스를 보며 내가 원하는 블로그의 무드와 편집적 톤을 먼저 정리했다.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="space-y-5">
@@ -968,6 +978,17 @@ const Article = () => {
             순간 이후의 작업이 훨씬 빨라졌다. 다만 이 단계에서 분명해진 한계도 있었다. Stitch는 무드
             탐색에는 좋았지만, 그것만으로는 내가 원하는 수준의 개성과 디테일까지 확보되지는 않았다.
           </p>
+
+          <figure className="space-y-3 pt-2">
+            <img
+              src={`${BASE_URL}images/blog-design-stitch.png`}
+              alt="Google Stitch로 탐색한 블로그 디자인 시안"
+              className="w-full border border-surface-variant/50"
+            />
+            <figcaption className="text-[13px] text-on-surface-variant break-keep">
+              Google Stitch 단계에서는 완성보다 방향 탐색이 더 중요했다.
+            </figcaption>
+          </figure>
         </section>
 
         <blockquote className="relative py-8 md:py-10 px-7 md:px-10 bg-primary-wash/50 border-l-4 border-primary overflow-hidden">
