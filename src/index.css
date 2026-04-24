@@ -239,3 +239,83 @@
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+.article-content {
+  @apply space-y-6 md:space-y-8;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+  @apply text-on-surface break-keep;
+}
+
+.article-content h1 {
+  font-size: var(--text-h1);
+}
+
+.article-content h2 {
+  font-size: var(--text-h2);
+  margin-top: 2.75rem;
+}
+
+.article-content h3 {
+  font-size: var(--text-h3);
+  margin-top: 2rem;
+}
+
+.article-content p,
+.article-content li,
+.article-content blockquote {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  line-height: var(--lh-body-kr);
+  color: var(--color-on-surface-variant);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  font-size: 17px;
+}
+
+.article-content ul {
+  @apply space-y-3 pl-6;
+  list-style: disc;
+}
+
+.article-content li::marker {
+  color: var(--color-primary);
+}
+
+.article-content blockquote {
+  @apply border-l-2 border-primary/40 pl-5 italic;
+}
+
+.article-content figure {
+  @apply my-8 overflow-hidden rounded-sm bg-surface-low;
+}
+
+.article-content img {
+  @apply w-full h-auto object-cover;
+}
+
+.article-content a {
+  color: var(--color-primary-ink);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: all 150ms ease;
+  font-weight: 500;
+}
+
+.article-content a:hover {
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+}
+
+.article-content code {
+  @apply rounded-sm bg-surface-low px-1.5 py-0.5 text-[0.9em];
+}
+
+.content-link.unresolved {
+  @apply text-on-surface-variant/60;
+}
