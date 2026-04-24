@@ -329,7 +329,7 @@ const Home = () => {
     title: '블로그 디자인, 나의 Taste를 묻다',
     desc: '레퍼런스 사이트에서 취향을 고르고, Google Stitch와 Claude cowork로 화면을 다듬고, GitHub Pages 배포 시행착오를 거쳐 내 블로그를 완성한 기록입니다.',
     tags: ['DESIGN', 'BLOG', 'GITHUB PAGES'],
-    image: `${BASE_URL}images/blog-design-reference.png`,
+    image: `${BASE_URL}images/blog-design-anthropic-hero.png`,
   };
 
   const secondary: Article[] = [
@@ -917,8 +917,8 @@ const Article = () => {
       <div className="mb-12 md:mb-16 group">
         <div className="aspect-[16/9] bg-surface-variant relative overflow-hidden">
           <img
-            src={`${BASE_URL}images/blog-design-reference.png`}
-            alt="블로그 디자인 레퍼런스 이미지"
+            src={`${BASE_URL}images/blog-design-anthropic-hero.png`}
+            alt="Anthropic 풍의 블로그 디자인 메인 이미지"
             className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
           />
           <div className="absolute inset-0 bg-primary/10 mix-blend-multiply group-hover:opacity-0 transition-opacity" />
